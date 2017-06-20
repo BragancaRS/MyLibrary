@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "618180484478",
+    "project_id": "mylibrary-59717"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618180484478:android:1af5209d6a98fce3",
+        "android_client_info": {
+          "package_name": "com.raphael.mylibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618180484478-f60hhiq67mdi3dc23h5k50451o57l63o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raphael.mylibrary",
+            "certificate_hash": "a4e71f9920b49e1c8b25feffc2d5ece9edc3ad4b"
+          }
+        },
+        {
+          "client_id": "618180484478-rhn0tvn1sekl7eihekkejhhmpld3568a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcTAPpBWDDgDl2zTqhQhKPqd9527owtOw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
