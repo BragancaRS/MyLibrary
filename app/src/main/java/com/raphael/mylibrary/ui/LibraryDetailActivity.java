@@ -163,7 +163,7 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            return new SimpleDateFormat("mm-dd-yyyy").format(currentDate);
+            return new SimpleDateFormat("dd-mm-yyyy").format(currentDate);
         }
 
     }

@@ -155,13 +155,13 @@ public class BookDetailActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.btn_add:
                 if (database.bookAlreadyInLibrary(book,getUserAccount().getId())){
-                    Toast.makeText(getApplicationContext(),"Book already in your library",
+                    Toast.makeText(getApplicationContext(),"Livro já está na sua biblioteca",
                             Toast.LENGTH_LONG).show();
                     break;
                 }else{
                     database.addBook(book,getUserAccount().getId());
-                    Toast.makeText(getApplicationContext(),"Book added to the " +
-                            "library", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Livro adicionado a sua biblioteca "
+                            ,Toast.LENGTH_LONG).show();
                     Intent goLibrary = new Intent(BookDetailActivity.this,LibraryActivity.class);
                     startActivity(goLibrary);
                     finish();
@@ -175,15 +175,15 @@ public class BookDetailActivity extends BaseActivity implements View.OnClickList
     private String formatPublishedDate(String date)  {
 
         Date currentDate = null;
-        if (date == "unknown" || date.length() < 10) {
+        if (date == "desconhecida" || date.length() < 10) {
             return date;
         }else{
             try {
-                currentDate = new SimpleDateFormat("yyyy-mm-dd").parse(date);
+                currentDate = new SimpleDateFormat("dd-mm-yyyy").parse(date);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            return new SimpleDateFormat("mm-dd-yyyy").format(currentDate);
+            return new SimpleDateFormat("dd-mm-yyyy").format(currentDate);
         }
 
     }
