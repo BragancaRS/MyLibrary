@@ -15,6 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.raphael.mylibrary.R;
 import com.raphael.mylibrary.database.SqlHelper;
 import com.raphael.mylibrary.model.Book;
@@ -41,6 +42,7 @@ public class BookDetailActivity extends BaseActivity implements View.OnClickList
     private ImageView bookCover;
     private ScrollView scrollView;
     private LinearLayout btnLayout;
+    private KenBurnsView coverBook;
 
     private Book book;
     private SqlHelper database;
@@ -49,11 +51,12 @@ public class BookDetailActivity extends BaseActivity implements View.OnClickList
     public void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.book_detail);
+        setContentView(R.layout.activity_book_detail);
 
         Bundle bundle = getIntent().getExtras();
         book = bundle.getParcelable("book");
 
+        coverBook =  (KenBurnsView) findViewById(R.id.kenBurnsViewId);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
         bookTitle = (TextView) findViewById(R.id.book_title);
         bookAuthor = (TextView) findViewById(R.id.book_author);
@@ -108,7 +111,9 @@ public class BookDetailActivity extends BaseActivity implements View.OnClickList
             Picasso.with(getApplicationContext()).load(R.mipmap.book_not_found).into(bookCover);
         }else {
             Picasso.with(getApplicationContext()).load(book.getUrlNormalCover()).into(bookCover);
+            Picasso.with(getApplicationContext()).load(book.getUrlNormalCover()).into(coverBook);
         }
+
         bookTitle.setText(book.getTitle());
         bookAuthor.setText(book.getAuthor());
         bookRate.setRating(book.getOfficialRate());

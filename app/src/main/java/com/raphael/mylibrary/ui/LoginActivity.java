@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_test);
         database = new SqlHelper(LoginActivity.this);
 
     // Configure sign-in to request the user's ID, email address, and basic
