@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,7 +8,7 @@
     <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
         android:layout_width="fill_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#1a237e"
+        android:background="#8d6e63"
         android:elevation="4dp"
         android:theme="@style/MyToolbar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -225,47 +226,28 @@
                 android:singleLine="false" />
 
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_below="@+id/book_description"
-                    android:layout_alignStart="@+id/label_book_year"
-                    android:layout_marginTop="@dimen/margin_top_labels"
-                    android:id="@+id/book_comment"
-                    android:maxLines="4"
-                    android:scrollbars="vertical"
-                    android:clickable="true"
-                    android:textIsSelectable="true"
-                    android:paddingRight="@dimen/padding_comment" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_below="@+id/book_description"
+                android:layout_alignStart="@+id/label_book_year"
+                android:layout_marginTop="@dimen/margin_top_labels"
+                android:id="@+id/book_comment"
+                android:maxLines="4"
+                android:scrollbars="vertical"
+                android:clickable="true"
+                android:textIsSelectable="true"
+                android:paddingRight="@dimen/padding_comment" />
 
 
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignTop="@+id/book_cover"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@id/book_cover"
-                android:id="@+id/linearLayoutCheckboxes"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_below="@+id/book_cover"
-                android:layout_alignBottom="@+id/book_cover">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkbox_read"
-                    android:layout_marginBottom="@dimen/margin_checkboxes"
-                    android:button="@drawable/checkbox_is_read_selector"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkbox_favorite"
-                    android:button="@drawable/checkbox_is_favorite_selector"/>
-            </LinearLayout>
+            <CheckBox
+                android:id="@+id/checkbox_favorite"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignBottom="@+id/book_cover"
+                android:layout_toEndOf="@+id/book_cover"
+                android:button="@drawable/checkbox_is_read_selector" />
 
 
         </RelativeLayout>

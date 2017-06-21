@@ -87,9 +87,9 @@ public class LibraryActivity extends BaseActivity implements SearchView.OnQueryT
         booksFound = new ArrayList<>();
         database = new SqlHelper(this);
         allBooks = database.getAllBooks(getUserAccount().getId());
-        booksToRead = database.getToReadBooks(getUserAccount().getId());
+        //booksToRead = database.getToReadBooks(getUserAccount().getId());
         readBooks = database.getReadBooks(getUserAccount().getId());
-        favoriteBooks = database.getFavoriteBooks(getUserAccount().getId());
+        //favoriteBooks = database.getFavoriteBooks(getUserAccount().getId());
 
         pager.setOffscreenPageLimit(1);
 
@@ -97,7 +97,7 @@ public class LibraryActivity extends BaseActivity implements SearchView.OnQueryT
             pagerAdapter.notifyDataSetChanged();
         }
 
-        pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),allBooks,booksToRead,readBooks,favoriteBooks);
+        pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),allBooks,readBooks);
         pager.setAdapter(pagerAdapter);
         tabs.setViewPager(pager);
         tabs.setTextColor(Color.WHITE);
@@ -127,14 +127,14 @@ public class LibraryActivity extends BaseActivity implements SearchView.OnQueryT
 
     public void updatePager(){
         allBooks = database.getAllBooks(getUserAccount().getId());
-        booksToRead = database.getToReadBooks(getUserAccount().getId());
+       // booksToRead = database.getToReadBooks(getUserAccount().getId());
         readBooks = database.getReadBooks(getUserAccount().getId());
-        favoriteBooks = database.getFavoriteBooks(getUserAccount().getId());
+        //favoriteBooks = database.getFavoriteBooks(getUserAccount().getId());
 
         allLists.add(0,allBooks);
-        allLists.add(1,booksToRead);
-        allLists.add(2,readBooks);
-        allLists.add(3,favoriteBooks);
+        allLists.add(1,readBooks);
+        //allLists.add(2,readBooks);
+        //allLists.add(3,favoriteBooks);
 
         pagerAdapter.notifyDataSetChanged();
         tabs.notifyDataSetChanged();
@@ -161,19 +161,18 @@ public class LibraryActivity extends BaseActivity implements SearchView.OnQueryT
 
     public  class MyPagerAdapter extends FragmentStatePagerAdapter {
 
-        private  int NUM_ITEMS = 4;
+        private  int NUM_ITEMS = 2;
         private boolean userIsSearchingBook = false;
         private String queryUser = "";
 
-        private final String[] TITLES = {"All", "To read","Read","Favorites"};
+        private final String[] TITLES = {"Todos", "Favoritos"};
 
-        public MyPagerAdapter(FragmentManager fragmentManager, ArrayList<Book> all, ArrayList<Book> to_read,
-                              ArrayList<Book> read, ArrayList<Book> favorites) {
+        public MyPagerAdapter(FragmentManager fragmentManager, ArrayList<Book> all, ArrayList<Book> favorites) {
             super(fragmentManager);
             allLists.add(0,all);
-            allLists.add(1,to_read);
-            allLists.add(2,read);
-            allLists.add(3,favorites);
+            allLists.add(1,favorites);
+            //allLists.add(2,read);
+            //allLists.add(3,favorites);
 
         }
 
@@ -196,20 +195,9 @@ public class LibraryActivity extends BaseActivity implements SearchView.OnQueryT
                     if (userIsSearchingBook){
                         return BooksFoundFragment.newInstance(getUserAccount(),queryUser);
                     }else{
-                        return ToReadBooksFragment.newInstance(getUserAccount());
-                    }
-                case 2:
-                    if (userIsSearchingBook){
-                        return BooksFoundFragment.newInstance(getUserAccount(),queryUser);
-                    }else{
-                        return ReadBooksFragment.newInstance(getUserAccount());
-                    }
-                case 3:
-                    if (userIsSearchingBook){
-                        return BooksFoundFragment.newInstance(getUserAccount(),queryUser);
-                    }else{
                         return FavoriteBooksFragment.newInstance(getUserAccount());
                     }
+
 
                 default: return AllBooksFragment.newInstance(getUserAccount());
 

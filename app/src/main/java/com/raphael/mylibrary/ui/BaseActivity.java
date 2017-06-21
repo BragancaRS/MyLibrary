@@ -72,7 +72,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.O
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_home_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Library");
+        getSupportActionBar().setTitle("Biblioteca");
 
     }
 

@@ -4,10 +4,11 @@
     android:layout_height="match_parent">
 
 
+
     <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
         android:layout_width="fill_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#1a237e"
+        android:background="#8d6e63"
         android:elevation="4dp"
         android:theme="@style/MyToolbar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -25,19 +26,26 @@
         android:layout_alignParentLeft="true" >
 
         <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/padding_layout"
-            android:paddingRight="@dimen/padding_layout"
             android:paddingBottom="@dimen/padding_layout">
 
+
+
+            <com.flaviofaria.kenburnsview.KenBurnsView
+                android:id="@+id/kenBurnsViewId"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                />
 
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="190dp"
                 android:id="@+id/book_cover"
+                android:layout_below="@+id/kenBurnsViewId"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="26dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +54,7 @@
                 android:id="@+id/book_title"
                 android:layout_alignTop="@+id/label_book_title"
                 android:layout_toEndOf="@+id/label_book_title"
-                android:textIsSelectable="true" />
+                android:textIsSelectable="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,7 +66,8 @@
                 android:layout_alignParentStart="true"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/margin_top_labels"
-                android:layout_marginRight="@dimen/margin_right_labels" />
+                android:layout_marginRight="@dimen/margin_right_labels"
+                android:layout_marginLeft="@dimen/margin_buttons"/>
 
             <TextView
                 android:layout_width="wrap_content"

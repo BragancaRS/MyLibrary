@@ -40,7 +40,7 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
     private RatingBar bookOfficialRate;
     private ImageView bookCover;
     private ScrollView scrollView;
-    private CheckBox checkBox_read;
+   // private CheckBox checkBox_read;
     private CheckBox checkbox_favorite;
 
     private Book book;
@@ -51,7 +51,7 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library_book_detail);
 
-        getSupportActionBar().setTitle("Book Detail");
+        getSupportActionBar().setTitle("Detalhes");
         Bundle bundle = getIntent().getExtras();
         book = bundle.getParcelable("book");
 
@@ -67,7 +67,7 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
         bookCover = (ImageView) findViewById(R.id.book_cover);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
         checkbox_favorite = (CheckBox) findViewById(R.id.checkbox_favorite);
-        checkBox_read = (CheckBox) findViewById(R.id.checkbox_read);
+       // checkBox_read = (CheckBox) findViewById(R.id.checkbox_read);
 
         bookDescription.setMovementMethod(new ScrollingMovementMethod());
         bookComment.setMovementMethod(new ScrollingMovementMethod());
@@ -102,7 +102,7 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
         });
 
         setCheckBoxes();
-        checkBox_read.setOnCheckedChangeListener(this);
+       // checkBox_read.setOnCheckedChangeListener(this);
         checkbox_favorite.setOnCheckedChangeListener(this);
 
     }
@@ -172,23 +172,11 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(buttonView.isPressed()){
             switch(buttonView.getId()){
-                case R.id.checkbox_read:
-                    if (isChecked){
-                        book.setIsRead(true);
-                        database.updateIsReadColumn(book,getUserAccount().getId());
-                        Toast.makeText(getApplicationContext(),"The book is read", Toast.LENGTH_SHORT).show();
-                        break;
-                    }else{
-                        book.setIsRead(false);
-                        database.updateIsReadColumn(book,getUserAccount().getId());
-                        Toast.makeText(getApplicationContext(),"The book is not read yet", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
                 case R.id.checkbox_favorite:
                     if(isChecked){
                         book.setIsFavorite(true);
                         database.updateIsFavoriteColumn(book,getUserAccount().getId());
-                        Toast.makeText(getApplicationContext(),"Book added to your favorite", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Livro adicionado aos favoritos", Toast.LENGTH_SHORT).show();
                         break;
                     }else{
                         book.setIsFavorite(false);
@@ -202,11 +190,7 @@ public class LibraryDetailActivity extends BaseActivity implements CompoundButto
     }
 
     public void setCheckBoxes(){
-        if (book.getIsRead()){
-            checkBox_read.setChecked(true);
-        }else{
-            checkBox_read.setChecked(false);
-        }
+
         if (book.getIsFavorite()){
             checkbox_favorite.setChecked(true);
         }else{
